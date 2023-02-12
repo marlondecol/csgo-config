@@ -1,0 +1,38 @@
+heading-style: # MD003
+  style: atx
+
+ul-style: # MD004
+  style: dash
+
+no-trailing-spaces: # MD009
+  strict: true
+
+no-hard-tabs: # MD010
+  spaces_per_tab: 2
+
+line-length: # MD013
+  line_length: &line-length 79
+  heading_line_length: *line-length
+  code_block_line_length: *line-length
+  stern: true
+
+no-duplicate-heading: # MD024
+  siblings_only: true
+
+ol-prefix: # MD029
+  style: ordered
+
+hr-style: # MD035
+  style: ---
+
+code-block-style: # MD046
+  style: fenced
+
+code-fence-style: # MD048
+  style: backtick
+
+emphasis-style: # MD049
+  style: asterisk
+
+strong-style: # MD050
+  style: asterisk

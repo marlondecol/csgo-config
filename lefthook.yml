@@ -1,0 +1,17 @@
+pre-commit:
+  piped: true
+  commands:
+    1-lint-files-with-editorconfig:
+      run: npx eclint check {staged_files}
+      tags: lint editorconfig
+
+    2-lint-markdown-files:
+      glob: "*.md"
+      run: npx markdownlint-cli {staged_files}
+      tags: lint markdownlint
+
+commit-msg:
+  commands:
+    lint-commit-message:
+      run: npx commitlint --edit
+      tags: lint commitlint

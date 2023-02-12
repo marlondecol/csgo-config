@@ -1,0 +1,32 @@
+name: Lint commit messages
+run-name: Lint commit messages of the ${{ github.ref_name }} branch
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  lint-commit-messages:
+    name: Lint commit messages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup a Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install commitlint from npm
+        run: npm install -g @commitlint/{cli,config-conventional}
+
+      - name: Lint commit messages with commitlint
+        run: commitlint --from ${{ github.event.pull_request.base.sha }}
+                        --to ${{ github.event.pull_request.head.sha }}
+                        --verbose
