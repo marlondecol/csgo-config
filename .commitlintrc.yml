@@ -1,6 +1,7 @@
 extends: "@commitlint/config-conventional"
 
 scopes: &scopes
+  - csgo
   - git
 
 rules:
